@@ -74,6 +74,7 @@ main .content {
 }
 #task__list .task {
   border-style: solid;
+  opacity: 0.5;
 }
 #task__list .task .task__content {
   display: grid;
@@ -126,5 +127,5 @@ main .content {
   color: red;
 }
 #task__list .task .options .remove i:hover {
-  filter: brightness(200%);
+  filter: brightness(250%);
 }/*# sourceMappingURL=main.css.map */

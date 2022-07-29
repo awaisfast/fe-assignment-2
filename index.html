@@ -25,33 +25,11 @@
       <div class="content">
         <form id="add__task">
           <input type="text" />
-          <button><i class="fa-solid fa-plus"></i>Add Task</button>
+          <button id="add" type="button">
+            <i class="fa-solid fa-plus"></i>Add Task
+          </button>
         </form>
-        <div id="task__list">
-          <div class="task">
-            <div class="task__content">
-              <div class="title">
-                <i class="fa-solid fa-list-check"></i>
-                <h2>Task 1:</h2>
-                <p>Assignment-2</p>
-              </div>
-              <div class="date__time"><p>29/7/2022 @ 4:02pm</p></div>
-              <div class="options">
-                <div class="btns">
-                  <button class="edit">
-                    <i class="fa-solid fa-italic"></i>
-                  </button>
-                  <button class="complete">
-                    <i class="fa-solid fa-circle-check"></i>
-                  </button>
-                  <button class="remove">
-                    <i class="fa-solid fa-trash"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="task__list"></div>
       </div>
     </main>
     <script src="/script.js"></script>
