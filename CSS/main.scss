@@ -85,10 +85,9 @@ main {
 #task__list {
   margin-top: 2rem;
   width: 80%;
-
   .task {
     border-style: solid;
-    opacity: 0.5;
+
     .task__content {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -148,4 +147,12 @@ main {
       }
     }
   }
+}
+
+.displayRemove {
+  display: none;
+}
+
+.completeTask {
+  opacity: 0.5;
 }

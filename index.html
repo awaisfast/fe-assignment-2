@@ -29,7 +29,33 @@
             <i class="fa-solid fa-plus"></i>Add Task
           </button>
         </form>
-        <div id="task__list"></div>
+        <div id="task__list">
+          <div class="task">
+            <div class="task__content">
+              <div class="title">
+                <i class="fa-solid fa-list-check"></i>
+                <h2>Task 1:</h2>
+                <p>title</p>
+              </div>
+              <div class="date__time">
+                <p>date @ time</p>
+              </div>
+              <div class="options">
+                <div class="btns">
+                  <button class="edit">
+                    <i class="fa-solid fa-italic"></i>
+                  </button>
+                  <button class="complete" onclick="completeTask(event)">
+                    <i class="fa-solid fa-circle-check"></i>
+                  </button>
+                  <button class="remove" onclick="removeTask(event)">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <script src="/script.js"></script>
