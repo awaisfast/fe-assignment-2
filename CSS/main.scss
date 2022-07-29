@@ -1,7 +1,9 @@
 $colors: (
   body-bg: #fcf8e8,
-  nav-bg: red,
+  nav-bg: #ca4e79,
   text-color: #f0f0f0,
+  complete-task: #3ccf4e,
+  remove-task: red,
 );
 
 @function color($color-name) {
@@ -53,21 +55,95 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  .content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-  #add__task {
-    width: 75%;
-    input {
-      width: 80%;
-      padding: 0.5rem 0rem;
+#add__task {
+  width: 80%;
+  display: flex;
+  input {
+    width: 80%;
+    padding: 0.5rem 0rem;
+  }
+  input:focus {
+    outline: none;
+    border-color: color(nav-bg);
+  }
+  button {
+    padding: 0.5rem 1.5rem;
+    i {
+      margin-right: 0.3rem;
     }
-    input:focus {
-      outline: none;
-      border-color: color(nav-bg);
+  }
+}
+
+#task__list {
+  margin-top: 2rem;
+  width: 80%;
+
+  .task {
+    border-style: solid;
+    .task__content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      margin: 0.5rem 2rem;
+      p {
+        font-size: 1.3rem;
+      }
     }
-    button {
-      padding: 0.5rem 1.5rem;
+
+    .title {
+      display: flex;
+      align-items: center;
       i {
-        margin-right: 0.3rem;
+        font-size: 1.2rem;
+        color: color(nav-bg);
+      }
+      h2 {
+        margin: 0rem 0.5rem;
+        cursor: pointer;
+      }
+    }
+    .date__time {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .options {
+      grid-column: 2;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      button {
+        margin-right: 1rem;
+        border: none;
+        background-color: color(body-bg);
+        i {
+          font-size: 1.3rem;
+          cursor: pointer;
+        }
+      }
+      .complete {
+        i {
+          color: color(complete-task);
+        }
+        i:hover {
+          filter: brightness(150%);
+        }
+      }
+      .remove {
+        i {
+          color: color(remove-task);
+        }
+        i:hover {
+          filter: brightness(150%);
+        }
       }
     }
   }

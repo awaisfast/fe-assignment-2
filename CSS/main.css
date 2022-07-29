@@ -7,7 +7,7 @@ body {
 
 header nav {
   display: flex;
-  background-color: red;
+  background-color: #ca4e79;
   color: #f0f0f0;
 }
 header nav .items {
@@ -42,20 +42,89 @@ main {
   flex-direction: column;
   align-items: center;
 }
-main #add__task {
-  width: 75%;
+main .content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-main #add__task input {
+
+#add__task {
+  width: 80%;
+  display: flex;
+}
+#add__task input {
   width: 80%;
   padding: 0.5rem 0rem;
 }
-main #add__task input:focus {
+#add__task input:focus {
   outline: none;
-  border-color: red;
+  border-color: #ca4e79;
 }
-main #add__task button {
+#add__task button {
   padding: 0.5rem 1.5rem;
 }
-main #add__task button i {
+#add__task button i {
   margin-right: 0.3rem;
+}
+
+#task__list {
+  margin-top: 2rem;
+  width: 80%;
+}
+#task__list .task {
+  border-style: solid;
+}
+#task__list .task .task__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 0.5rem 2rem;
+}
+#task__list .task .task__content p {
+  font-size: 1.3rem;
+}
+#task__list .task .title {
+  display: flex;
+  align-items: center;
+}
+#task__list .task .title i {
+  font-size: 1.2rem;
+  color: #ca4e79;
+}
+#task__list .task .title h2 {
+  margin: 0rem 0.5rem;
+  cursor: pointer;
+}
+#task__list .task .date__time {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#task__list .task .options {
+  grid-column: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#task__list .task .options button {
+  margin-right: 1rem;
+  border: none;
+  background-color: #fcf8e8;
+}
+#task__list .task .options button i {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+#task__list .task .options .complete i {
+  color: #3ccf4e;
+}
+#task__list .task .options .complete i:hover {
+  filter: brightness(150%);
+}
+#task__list .task .options .remove i {
+  color: red;
+}
+#task__list .task .options .remove i:hover {
+  filter: brightness(150%);
 }/*# sourceMappingURL=main.css.map */
