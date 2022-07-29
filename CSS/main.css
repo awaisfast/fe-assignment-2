@@ -1,0 +1,35 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fcf8e8;
+}
+
+header nav {
+  display: flex;
+  background-color: red;
+  color: #f0f0f0;
+}
+header nav .items {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+}
+header nav .items h2 {
+  cursor: pointer;
+}
+header nav ul {
+  display: flex;
+  width: 15%;
+  justify-content: space-around;
+}
+header nav .nav__links {
+  display: flex;
+  list-style: none;
+}
+header nav .nav__links a {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  text-decoration: none;
+}/*# sourceMappingURL=main.css.map */

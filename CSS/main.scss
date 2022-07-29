@@ -1,0 +1,47 @@
+$colors: (
+  body-bg: #fcf8e8,
+  nav-bg: red,
+  text-color: #f0f0f0,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: color(body-bg);
+}
+
+header {
+  nav {
+    display: flex;
+    background-color: color(nav-bg);
+    color: color(text-color);
+    .items {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      align-items: center;
+      h2 {
+        cursor: pointer;
+      }
+    }
+    ul {
+      display: flex;
+      width: 15%;
+      justify-content: space-around;
+    }
+    .nav__links {
+      display: flex;
+      list-style: none;
+      a {
+        font-size: 1.2rem;
+        color: color(text-color);
+        text-decoration: none;
+      }
+    }
+  }
+}
