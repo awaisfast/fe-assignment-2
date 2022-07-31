@@ -1,6 +1,6 @@
 $colors: (
   body-bg: #fcf8e8,
-  nav-bg: #ca4e79,
+  nav-bg: #ca955c,
   text-color: #f0f0f0,
   complete-task: #3ccf4e,
   remove-task: red,
@@ -47,9 +47,8 @@ header {
       }
       h2 {
         cursor: pointer;
-        @include mobile-nav {
-          font-size: 1.5rem;
-        }
+        font-size: 2rem;
+        font-style: italic;
       }
     }
     ul {
@@ -68,12 +67,11 @@ header {
         align-items: center;
       }
       a {
-        font-size: 1.2rem;
+        font-size: 1.7rem;
         color: color(text-color);
         text-decoration: none;
         @include mobile-nav {
           margin-bottom: 1rem;
-          font-size: 1.5rem;
         }
       }
     }
@@ -112,6 +110,7 @@ main {
   }
   button {
     padding: 0.5rem 1.5rem;
+    cursor: pointer;
     i {
       margin-right: 0.3rem;
     }
@@ -145,7 +144,7 @@ main {
   .task {
     border-style: solid;
     border-radius: 2rem;
-
+    margin-bottom: 1rem;
     .task__content {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -191,6 +190,7 @@ main {
         margin-right: 1rem;
         border: none;
         background-color: color(body-bg);
+        cursor: pointer;
         i {
           font-size: 1.3rem;
           cursor: pointer;
@@ -221,5 +221,6 @@ main {
 }
 
 .completeTask {
-  opacity: 0.5;
+  opacity: 0.3;
+  background-color: color(nav-bg);
 }

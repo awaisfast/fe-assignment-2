@@ -1,46 +1,16 @@
 "use strict";
-let selectedIndex = 0;
-let tasksArray = [];
+let selectedIndex = 0; //global variable to use index
+let tasksArray = []; //to store objects
 tasksArray = JSON.parse(localStorage.getItem("lastname"));
 
 const containerTasks = document.querySelector("#task__list");
-containerTasks.classList.add("displayRemove");
 const taskButton = document.getElementById("add");
 const editButton = document.getElementById("edit");
 const inputField = document.querySelector("input");
 const inputEnter = document.querySelector("input");
 const completeButton = document.querySelector(".complete");
-const editOption = document.querySelector(".edit");
 
-containerTasks.classList.remove("displayRemove");
 renderHTML();
-
-function completeTask(event, i) {
-  tasksArray[i].isComplete = tasksArray[i].isComplete ? false : true;
-  renderHTML();
-}
-
-function removeTask(event, i) {
-  tasksArray.splice(i, 1);
-  containerTasks.innerHTML = "";
-  renderHTML();
-}
-
-function editTask(i) {
-  console.log("start editinh");
-  taskButton.classList.add("displayRemove");
-  editButton.classList.remove("displayRemove");
-  selectedIndex = i;
-}
-editButton.addEventListener("click", function () {
-  let str = "";
-  str = inputField.value;
-  tasksArray[selectedIndex].title = str;
-  taskButton.classList.remove("displayRemove");
-  editButton.classList.add("displayRemove");
-  console.log(tasksArray, tasksArray[selectedIndex], selectedIndex);
-  renderHTML();
-});
 
 // Class of TODO LIST
 
@@ -54,14 +24,39 @@ class Todo {
   }
 }
 
+function completeTask(event, i) {
+  tasksArray[i].isComplete = tasksArray[i].isComplete ? false : true;
+  renderHTML();
+}
+
+function removeTask(event, i) {
+  tasksArray.splice(i, 1);
+  renderHTML();
+}
+
+function editTask(i) {
+  //add and remove addTask/editTask buttons
+  taskButton.classList.add("displayRemove");
+  editButton.classList.remove("displayRemove");
+  selectedIndex = i;
+}
+editButton.addEventListener("click", function () {
+  let str = inputField.value.trim();
+  //checking if input field is not empty
+  tasksArray[selectedIndex].title =
+    str.length > 0 ? str : tasksArray[selectedIndex].title;
+  taskButton.classList.remove("displayRemove");
+  editButton.classList.add("displayRemove");
+  renderHTML();
+});
+
 function renderHTML() {
   containerTasks.innerHTML = "";
   inputField.value = "";
   let str = "";
-  console.log("hello", tasksArray);
   localStorage.setItem("lastname", JSON.stringify(tasksArray));
   tasksArray.map((el, i) => {
-    console.log("map hellow", containerTasks);
+    //checking if the task is complete orn not
     str = el.isComplete ? "completeTask" : "";
     const html = `<div class="task ${str}">
           <div class="task__content">
@@ -93,13 +88,10 @@ function renderHTML() {
 }
 
 function creatObject() {
-  // containerTasks.innerHTML = "";
-
-  containerTasks.classList.remove("displayRemove");
-
   const taskInput = inputField.value.trim();
   inputField.value = "";
 
+  //getting date and time in dd/mm/yyyy format
   const dateTime = new Date();
   const dateDay = String(dateTime.getDate()).padStart(2, 0);
   const dateMonth = String(dateTime.getMonth() + 1).padStart(2, 0);
@@ -109,7 +101,6 @@ function creatObject() {
   str = timeHour > 12 ? "PM" : "AM";
   timeHour = timeHour > 12 ? timeHour - 12 : timeHour;
   timeHour = String(timeHour).padStart(2, 0);
-
   let timeMin = String(dateTime.getMinutes()).padStart(2, 0);
 
   const date = `${dateDay}/${dateMonth}/${dateYear}`;
@@ -121,7 +112,10 @@ function creatObject() {
 inputEnter.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
-    taskButton.click();
+    //checking is enter pressed for edit or add task
+    taskButton.classList.contains("displayRemove")
+      ? editButton.click()
+      : taskButton.click();
   }
 });
 
