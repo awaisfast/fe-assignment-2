@@ -16,22 +16,49 @@ header nav .items {
   margin: auto;
   align-items: center;
 }
+@media (max-width: 700px) {
+  header nav .items {
+    flex-direction: column;
+  }
+}
 header nav .items h2 {
   cursor: pointer;
+}
+@media (max-width: 700px) {
+  header nav .items h2 {
+    font-size: 1.5rem;
+  }
 }
 header nav ul {
   display: flex;
   width: 15%;
   justify-content: space-around;
 }
+@media (max-width: 700px) {
+  header nav ul {
+    flex-direction: column;
+    padding: 0;
+  }
+}
 header nav .nav__links {
   display: flex;
   list-style: none;
+}
+@media (max-width: 700px) {
+  header nav .nav__links {
+    align-items: center;
+  }
 }
 header nav .nav__links a {
   font-size: 1.2rem;
   color: #f0f0f0;
   text-decoration: none;
+}
+@media (max-width: 700px) {
+  header nav .nav__links a {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
 }
 
 main {
@@ -53,6 +80,12 @@ main .content {
   width: 80%;
   display: flex;
 }
+@media (max-width: 700px) {
+  #add__task {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 #add__task input {
   width: 80%;
   padding: 0.5rem 0rem;
@@ -67,13 +100,39 @@ main .content {
 #add__task button i {
   margin-right: 0.3rem;
 }
+@media (max-width: 700px) {
+  #add__task button {
+    margin-top: 1.5rem;
+  }
+}
+#add__task button:hover {
+  border: none;
+  color: #ca4e79;
+}
+#add__task #edit {
+  background-color: #ca4e79;
+  color: #fcf8e8;
+  border: none;
+}
 
 #task__list {
   margin-top: 2rem;
   width: 80%;
+  height: 40rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-track-color: #fcf8e8;
+  border-style: none;
+  border-radius: 2rem;
+}
+@media (max-width: 850px) {
+  #task__list {
+    width: 100%;
+  }
 }
 #task__list .task {
   border-style: solid;
+  border-radius: 2rem;
 }
 #task__list .task .task__content {
   display: grid;
@@ -81,8 +140,21 @@ main .content {
   grid-template-rows: 1fr 1fr;
   margin: 0.5rem 2rem;
 }
+@media (max-width: 850px) {
+  #task__list .task .task__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 #task__list .task .task__content p {
   font-size: 1.3rem;
+}
+@media (max-width: 700px) {
+  #task__list .task .task__content {
+    display: flex;
+    flex-direction: column;
+  }
 }
 #task__list .task .title {
   display: flex;
