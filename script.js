@@ -55,10 +55,12 @@ function renderHTML() {
   inputField.value = "";
   let str = "";
   localStorage.setItem("lastname", JSON.stringify(tasksArray));
-  tasksArray.map((el, i) => {
-    //checking if the task is complete orn not
-    str = el.isComplete ? "completeTask" : "";
-    const html = `<div class="task ${str}">
+  console.log(tasksArray);
+  if (tasksArray) {
+    tasksArray.map((el, i) => {
+      //checking if the task is complete orn not
+      str = el.isComplete ? "completeTask" : "";
+      const html = `<div class="task ${str}">
           <div class="task__content">
             <div class="title">
               <i class="fa-solid fa-list-check"></i>
@@ -83,8 +85,9 @@ function renderHTML() {
             </div>
           </div>
         </div>`;
-    containerTasks.insertAdjacentHTML("beforeend", html);
-  });
+      containerTasks.insertAdjacentHTML("beforeend", html);
+    });
+  }
 }
 
 function creatObject() {
