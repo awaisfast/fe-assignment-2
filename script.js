@@ -1,7 +1,10 @@
 "use strict";
 let selectedIndex = 0; //global variable to use index
 let tasksArray = []; //to store objects
-tasksArray = JSON.parse(localStorage.getItem("lastname"));
+
+if (localStorage.getItem("lastname")) {
+  tasksArray = JSON.parse(localStorage.getItem("lastname"));
+}
 
 const containerTasks = document.querySelector("#task__list");
 const taskButton = document.getElementById("add");
