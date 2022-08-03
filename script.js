@@ -6,7 +6,7 @@ if (localStorage.getItem("lastname")) {
   tasksArray = JSON.parse(localStorage.getItem("lastname"));
 }
 
-const containerTasks = document.querySelector("#task__list");
+const containerTasks = document.getElementById("task__list");
 const taskButton = document.getElementById("add");
 const editButton = document.getElementById("edit");
 const inputField = document.querySelector("input");
@@ -27,23 +27,23 @@ class Todo {
   }
 }
 
-function completeTask(event, i) {
+completeTask = (event, i) => {
   tasksArray[i].isComplete = tasksArray[i].isComplete ? false : true;
   renderHTML();
-}
+};
 
-function removeTask(event, i) {
+removeTask = (event, i) => {
   tasksArray.splice(i, 1);
   renderHTML();
-}
+};
 
-function editTask(i) {
+editTask = (i) => {
   //add and remove addTask/editTask buttons
   taskButton.classList.add("displayRemove");
   editButton.classList.remove("displayRemove");
   selectedIndex = i;
-}
-editButton.addEventListener("click", function () {
+};
+editButton.addEventListener("click", () => {
   let str = inputField.value.trim();
   //checking if input field is not empty
   tasksArray[selectedIndex].title =
@@ -53,7 +53,7 @@ editButton.addEventListener("click", function () {
   renderHTML();
 });
 
-function renderHTML() {
+renderHTML = () => {
   containerTasks.innerHTML = "";
   inputField.value = "";
   let str = "";
@@ -91,17 +91,23 @@ function renderHTML() {
       containerTasks.insertAdjacentHTML("beforeend", html);
     });
   }
-}
+};
 
-function creatObject() {
-  const taskInput = inputField.value.trim();
-  inputField.value = "";
-
-  //getting date and time in dd/mm/yyyy format
+function calcDate() {
   const dateTime = new Date();
   const dateDay = String(dateTime.getDate()).padStart(2, 0);
   const dateMonth = String(dateTime.getMonth() + 1).padStart(2, 0);
   const dateYear = dateTime.getFullYear();
+  const date = `${dateDay}/${dateMonth}/${dateYear}`;
+  return date;
+}
+
+function createTask() {
+  const taskInput = inputField.value.trim();
+  inputField.value = "";
+
+  //getting date and time in dd/mm/yyyy format
+
   let str = "";
   let timeHour = dateTime.getHours();
   str = timeHour > 12 ? "PM" : "AM";
@@ -109,7 +115,7 @@ function creatObject() {
   timeHour = String(timeHour).padStart(2, 0);
   let timeMin = String(dateTime.getMinutes()).padStart(2, 0);
 
-  const date = `${dateDay}/${dateMonth}/${dateYear}`;
+  const date = calcDate();
   const time = `${timeHour}:${timeMin}`;
 
   tasksArray.push(new Todo(taskInput, date, time, str, false));
@@ -125,9 +131,9 @@ inputEnter.addEventListener("keypress", function (e) {
   }
 });
 
-taskButton.addEventListener("click", function () {
+taskButton.addEventListener("click", () => {
   if (inputField.value.trim().length != 0) {
-    creatObject();
+    createTask();
     renderHTML();
   }
 });
