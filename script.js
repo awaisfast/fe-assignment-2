@@ -53,7 +53,7 @@ editButton.addEventListener("click", () => {
   renderHTML();
 });
 
-renderHTML = () => {
+function renderHTML() {
   containerTasks.innerHTML = "";
   inputField.value = "";
   let str = "";
@@ -90,15 +90,6 @@ renderHTML = () => {
       containerTasks.insertAdjacentHTML("beforeend", html);
     });
   }
-};
-
-function calcDate() {
-  const dateTime = new Date();
-  const dateDay = String(dateTime.getDate()).padStart(2, 0);
-  const dateMonth = String(dateTime.getMonth() + 1).padStart(2, 0);
-  const dateYear = dateTime.getFullYear();
-  const date = `${dateDay}/${dateMonth}/${dateYear}`;
-  return date;
 }
 
 const calcDate = (dateTime) => {
@@ -126,7 +117,7 @@ const calcTime = (dateTime) => {
   return [time, str];
 };
 
-function createTask() {
+function creatObject() {
   const taskInput = inputField.value.trim();
   inputField.value = "";
 
@@ -149,7 +140,7 @@ inputEnter.addEventListener("keypress", (e) => {
 
 taskButton.addEventListener("click", () => {
   if (inputField.value.trim().length != 0) {
-    createTask();
+    creatObject();
     renderHTML();
   }
 });
